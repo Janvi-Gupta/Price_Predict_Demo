@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flask Web Page</title>
+    
+    <style>
+        .bg
+        {
+           background-color:rgb(240, 204, 137);
+            /* background-image: url('House.jpg');
+            background-size: 100% 100%;
+            filter: blur(8px);
+           -webkit-filter: blur(0px); */
+        }
+        .design{
+            background-color:white;
+            text-align: center;
+            border: 2px solid black;
+            width: 50%;
+            margin: 3.1% 22%;
+            padding:1% 3% 0 3%;
+        }
+        input[type="text"]{
+            width:96.5%;
+            padding:1.5%;            
+            font-size:20px;
+            border-radius:10px;
+        }
+        select{
+            width: 32%;
+            padding: 2%;
+            color: black;
+            border-radius:10px;
+        }
+        button{
+            width: 100%;
+            background-color:rgb(240, 204, 137);
+            color:black;
+            font-weight:bold;
+            font-size:25px;
+            padding: 1.5%;
+            border-radius:10px;
+        }
+        button:hover{
+            background-color: black;
+            color: rgb(240, 204, 137);
+        }
+        .decorate{
+            width: 49%;
+            padding:2%;
+            margin: 1.5% 0;
+        }
+        h1{
+            Color:black;
+            font-family:sans-serif;
+            font-size: 40px;
+        }
+        h3{
+            padding: ;
+        }
+
+    </style>
+    
+</head>
+<body class="bg">
+    <div class="design">
+        <div>
+            <h1>House Price Prediction</h1>
+        </div>
+        <form action="/Price_Predict" method="POST">
+            <!-- <label>Area:</label><br> -->
+            <input type="text" name="area" placeholder="Enter Area of House: " required></input>
+            <br><br>
+            <select name="bedrooms" required>
+                <option disabled selected hidden>BedRooms</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            &nbsp;
+            <select name="bathrooms" required>
+                <option disabled selected hidden>BathRooms</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            &nbsp;&nbsp;            
+            <select name="stories" required>
+                <option disabled selected hidden>Stories</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <br><br>
+            <select name="mainroad" required class="decorate">
+                <option disabled selected hidden>MainRoad</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            &nbsp;
+            <select name="guestroom" required class="decorate">
+                <option disabled selected hidden>GuestRoom</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            <br>
+            <select name="basement" required class="decorate">
+                <option disabled selected hidden>Basement</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            &nbsp;
+            <select name="hotwaterheating" required class="decorate">
+                <option disabled selected hidden>HotwaterHeating</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            <br>
+            <select name="airconditioning" required class="decorate">
+                <option disabled selected hidden>AirConditioning</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            &nbsp;            
+            <select name="parking" required class="decorate">
+                <option disabled selected hidden>Parking</option>
+                <option value="1">0</option>
+                <option value="2">1</option>
+                <option value="3">2</option>
+                <option value="4">3</option>
+            </select>
+            <br>
+            <select name="prefarea" required class="decorate">
+                <option disabled selected hidden>Prefarea</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            &nbsp;
+            <select name="furnishingstatus" required class="decorate">
+                <option disabled selected hidden>Furnishingstatus</option>
+                <option value="0">furnished</option>
+                <option value="1">semi-furnished</option>
+                <option value="2">unfurnished</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+        <h3><b>{{ prediction_text }}</b></h3>
+    </div>
+</body>
+</html>
